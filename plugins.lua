@@ -13,6 +13,12 @@ local plugins = {
     lazy=false,
   },
 
+  {
+    "NvChad/nvcommunity",
+    { import = "nvcommunity.git.neogit" },
+    { import = "nvcommunity.editor.treesittercontext"},
+  },
+
   -- override plugin configs
   {
     "williamboman/mason.nvim",

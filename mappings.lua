@@ -5,17 +5,18 @@ M.disabled = {
   n = {
     -- default nvim-tree toggle
     ["<C-n>"] = "",
+
+    -- default nvterm
+    ["<A-i>"] = "",
+    ["<A-h>"] = "",
+    ["<A-v>"] = "",
    },
 
   t = {
     -- default nvterm
-    -- ["<A-i>"] = "",
-    -- ["<A-h>"] = "",
-    -- ["<A-v>"] = "",
-    -- ["<leader>h"] = "",
-    -- ["<leader>v"] = "",
-
-    -- ["<C-x>"] = "",
+    ["<A-i>"] = "",
+    ["<A-h>"] = "",
+    ["<A-v>"] = "",
   },
 }
 
@@ -35,7 +36,7 @@ M.general = {
     ["<leader>qQ"] = { "<cmd> wqall <CR>", "Write files and quit NvChad" },
     ["<leader>qE"] = { "<cmd> cquit <CR>", "Error-quit NvChad" },
 
-    ["<leader>qx"] = { function() require("nvchad.tabufline").closeAllBufs() end, "Quit buffers" },
+    ["<leader>qb"] = { function() require("nvchad.tabufline").closeOtherBufs() end, "Quit buffers except the current one." },
   },
   v = {
     [">"] = { ">gv", "indent"},
@@ -50,6 +51,54 @@ M.nvimtree = {
   n = {
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
   },
+}
+
+M.nvterm = {
+  n = {
+    ["<C-\\>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+
+    ["<leader>h"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+
+    ["<leader>v"] = {
+      function()
+        require("nvterm.terminal").toggle "vertical"
+      end,
+      "Toggle vertical term",
+    },
+  },
+
+  t = {
+    ["<leader>h"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+
+    ["<leader>v"] = {
+      function()
+        require("nvterm.terminal").toggle "vertical"
+      end,
+      "Toggle vertical term",
+    },
+
+    ["<C-\\>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+  }
 }
 
 -- more keybinds!
