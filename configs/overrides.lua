@@ -40,17 +40,21 @@ M.mason = {
     "clang-format",
 
     -- rust
-    "rust-analyzer"
+    "rust-analyzer",
   },
 }
 
-
 -- git support in nvimtree
 M.nvimtree = {
-  on_attach = function (bufnr)
-      local api = require("nvim-tree.api")
-      vim.keymap.set('n', 'l', api.node.open.edit, {noremap=true, silent=true, nowait=true, buffer=bufnr, desc="nvim-tree: Edit File"})
-      api.config.mappings.default_on_attach(bufnr)
+  on_attach = function(bufnr)
+    local api = require "nvim-tree.api"
+    vim.keymap.set(
+      "n",
+      "l",
+      api.node.open.edit,
+      { noremap = true, silent = true, nowait = true, buffer = bufnr, desc = "nvim-tree: Edit File" }
+    )
+    api.config.mappings.default_on_attach(bufnr)
   end,
 
   git = {
@@ -72,14 +76,12 @@ M.nvimtree = {
       glyphs = {
         git = {
           ignored = "",
-        }
-      }
+        },
+      },
     },
   },
 }
 
-M.nvdash = {
-
-}
+M.nvdash = {}
 
 return M

@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -6,23 +6,33 @@ local plugins = {
   -- Override plugin definition options
   {
     "williamboman/mason-lspconfig.nvim",
-    config=function ()
-      require("custom.configs.lspconfig")
+    config = function()
+      require "custom.configs.lspconfig"
     end,
-    dependencies= "neovim/nvim-lspconfig",
-    lazy=false,
+    dependencies = "neovim/nvim-lspconfig",
+    lazy = false,
+  },
+
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    config = true,
+    cmd = "Neogit",
   },
 
   {
     "NvChad/nvcommunity",
-    { import = "nvcommunity.git.neogit" },
-    { import = "nvcommunity.editor.treesittercontext"},
+    { import = "nvcommunity.editor.treesittercontext" },
   },
 
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -47,7 +57,7 @@ local plugins = {
   {
     "stevearc/conform.nvim",
     --  for users those who want auto-save conform + lazyloading!
-    -- event = "BufWritePre"
+    event = "BufWritePre",
     config = function()
       require "custom.configs.conform"
     end,

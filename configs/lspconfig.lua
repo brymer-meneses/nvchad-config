@@ -3,22 +3,22 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 local function on_attach(client, bufnr)
-  require "plugins.configs.lspconfig".on_attach(client, bufnr)
+  require("plugins.configs.lspconfig").on_attach(client, bufnr)
 
   if client.server_capabilities.documentSymbolProvider then
-    require "nvim-navic".on_attach(client, bufnr)
+    require("nvim-navic").on_attach(client, bufnr)
   end
 end
 
-require("mason-lspconfig").setup_handlers({
-  function (server_name)
+require("mason-lspconfig").setup_handlers {
+  function(server_name)
     lspconfig[server_name].setup {
       on_attach = on_attach,
-      capabilities = capabilities
+      capabilities = capabilities,
     }
   end,
 
-  ["lua_ls"] = function ()
+  ["lua_ls"] = function()
     lspconfig.lua_ls.setup {
       on_attach = on_attach,
       capabilities = capabilities,
@@ -41,6 +41,5 @@ require("mason-lspconfig").setup_handlers({
         },
       },
     }
-  end
-})
-
+  end,
+}

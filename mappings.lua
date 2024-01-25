@@ -10,7 +10,7 @@ M.disabled = {
     ["<A-i>"] = "",
     ["<A-h>"] = "",
     ["<A-v>"] = "",
-   },
+  },
 
   t = {
     -- default nvterm
@@ -36,10 +36,15 @@ M.general = {
     ["<leader>qQ"] = { "<cmd> wqall <CR>", "Write files and quit NvChad" },
     ["<leader>qE"] = { "<cmd> cquit <CR>", "Error-quit NvChad" },
 
-    ["<leader>qb"] = { function() require("nvchad.tabufline").closeOtherBufs() end, "Quit buffers except the current one." },
+    ["<leader>qb"] = {
+      function()
+        require("nvchad.tabufline").closeOtherBufs()
+      end,
+      "Quit buffers except the current one.",
+    },
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
   },
 
   t = {
@@ -98,7 +103,7 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
-  }
+  },
 }
 
 -- more keybinds!
