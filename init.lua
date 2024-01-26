@@ -1,6 +1,10 @@
--- Auto resize panes when resizing nvim window
 local autocmd = vim.api.nvim_create_autocmd
 local new_cmd = vim.api.nvim_create_user_command
+local opt = vim.opt
+
+opt.cmdheight = 0
+opt.expandtab = true
+opt.wrap = false
 
 autocmd("VimResized", {
   pattern = "*",

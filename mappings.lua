@@ -17,12 +17,19 @@ M.disabled = {
     ["<A-i>"] = "",
     ["<A-h>"] = "",
     ["<A-v>"] = "",
+
+    -- default escape for terminal mode
+    ["<C-x>"] = "",
   },
 }
 
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<A-j>"] = { "<cmd>resize -2<CR>", "Resize Down" },
+    ["<A-k>"] = { "<cmd>resize +2<CR>", "Resize Up" },
+    ["<A-h>"] = { "<cmd>vertical resize -2<CR>", "Resize Left" },
+    ["<A-l>"] = { "<cmd>vertical resize +2<CR>", "Resize Right" },
 
     --  format with conform
     ["<leader>fm"] = {
@@ -103,6 +110,11 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
+
+    ["<C-h>"] = { "<C-\\><C-N><C-w>h", "Window left" },
+    ["<C-l>"] = { "<C-\\><C-N><C-w>l", "Window right" },
+    ["<C-j>"] = { "<C-\\><C-N><C-w>j", "Window down" },
+    ["<C-k>"] = { "<C-\\><C-N><C-w>k", "Window up" },
   },
 }
 

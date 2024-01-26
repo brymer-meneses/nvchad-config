@@ -3,25 +3,42 @@ local M = {}
 
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
-local opt = vim.opt
-
-opt.cmdheight = 0
-opt.expandtab = true
-opt.wrap = false
 
 local config_folder = vim.fn.stdpath "config"
 
 M.ui = {
-  theme = "chadtain",
-  theme_toggle = { "chadtain", "one_light" },
+  theme = "gruvchad",
+  theme_toggle = { "gruvchad", "one_light" },
 
   extended_integrations = { "dap", "navic" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
 
+  statusline = {
+    theme = "default",
+    separator_style = "round",
+  },
+
   nvdash = {
     load_on_startup = true,
+    header = {
+      "                                   ",
+      "                                   ",
+      "                                   ",
+      "   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ",
+      "    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ",
+      "          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ",
+      "           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ",
+      "          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ",
+      "   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ",
+      "  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ",
+      " ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ",
+      " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ",
+      "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
+      "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
+      "                                   ",
+    },
     buttons = {
       { "  Config", "", "cd" .. config_folder .. "| NvimTreeToggle" },
       { "  Find File", "", "Telescope find_files" },

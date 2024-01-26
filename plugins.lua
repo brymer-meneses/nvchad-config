@@ -14,6 +14,12 @@ local plugins = {
   },
 
   {
+    "CRAG666/code_runner.nvim",
+    lazy = false,
+    config = true,
+  },
+
+  {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim", -- required

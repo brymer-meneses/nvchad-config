@@ -13,6 +13,9 @@ M.override = {
   CursorLine = {
     bg = "black2",
   },
+
+  NvDashAscii = { bg = "NONE", fg = "grey_fg" },
+  NvDashButtons = { bg = "NONE", fg = "grey_fg" },
 }
 
 ---@type HLTable
